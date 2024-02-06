@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff0f0;
+}
+
+.container{
+    width: 60vw;
+    height: 60vh;
+    background-color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    height: 8rem;
+}
+
+.responsePart{
+    width: 100%;
+    height: 50vh;
+    background-color: #725353;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    margin: 2rem;
+    overflow: auto;
+    margin-top: 0;
+    padding: 2rem;
+}
+
+.response{
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.requestPart{
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.requestPart input{
+    border: none;
+    line-height: 2rem;
+    width: 80%;
+    border: 1px solid #a39595;
+    border-radius: 0.5rem;
+    padding: 0 0.75rem;
+    margin: 0;
+    outline: none;
+}
+
+.requestPart button{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: none;
+    font-size: 1rem;
+    background-color: #e1d3d3;
+    cursor: pointer;
+}
+
+.requestPart button:hover{
+    background-color: #a39595;
+}
