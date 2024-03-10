@@ -12,17 +12,18 @@ body{
     background-color: #fff0f0;
 }
 
-.container{
-    width: 60vw;
+.chat-container{
+    width: 40rem;
     height: 60vh;
     background-color: #fff;
     border-radius: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
+    overflow: auto;
 }
 
 img{
@@ -30,20 +31,33 @@ img{
 }
 
 
-.response{
-    margin: 0;
-    padding: 0;
-    width: auto;
+.chat-messages{
+    overflow: auto;
 }
 
-.requestPart{
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Optionally hide scrollbar for IE and Edge */
+.chat-messages {
+    -ms-overflow-style: none;
+}
+
+.chat-input{
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
     justify-content: space-around;
 }
 
-.requestPart input{
+.chat-input input{
     border: none;
     line-height: 2rem;
     width: 80%;
@@ -54,9 +68,9 @@ img{
     outline: none;
 }
 
-.requestPart button{
+.chat-input button{
     height: 2rem;
-    width: 2rem;
+    width: 4rem;
     border-radius: 50%;
     border: none;
     font-size: 1rem;
@@ -64,6 +78,14 @@ img{
     cursor: pointer;
 }
 
-.requestPart button:hover{
+.chat-input button:hover{
     background-color: #a39595;
+}
+
+.chat-message{
+    text-align: right;
+}
+
+.bot-response{
+    text-align: left;
 }
