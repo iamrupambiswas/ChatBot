@@ -33,6 +33,11 @@ img{
 
 .chat-messages{
     overflow: auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -84,8 +89,40 @@ img{
 
 .chat-message{
     text-align: right;
+    display: inline-block;
+    align-self: flex-end;
+    background-color: #a39595;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
 }
 
 .bot-response{
     text-align: left;
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #f2eeee;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.loading{
+    text-align: left;
+    display: none;
+    align-self: flex-start;
+    background-color: #f2eeee;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    order: 1;
+}
+
+#errorMessage{
+    text-align: left;
+    display: none;
+    align-self: flex-start;
+    background-color: #f2eeee;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    color: red;   
+    margin-bottom: 2rem;
 }

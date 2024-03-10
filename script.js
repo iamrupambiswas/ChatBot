@@ -2,9 +2,10 @@ const url = 'https://chatgpt-gpt5.p.rapidapi.com/ask';
 
 document.querySelector('button').addEventListener('click', (event) => {
     event.preventDefault();
+    showLoadingIndicator();
 
-    // Get the current value of the input field when the button is clicked
     const question = document.querySelector('#question').value;
+    displayMessage('user', question);
 
     const options = {
         method: 'POST',
@@ -14,7 +15,7 @@ document.querySelector('button').addEventListener('click', (event) => {
             'X-RapidAPI-Host': 'chatgpt-gpt5.p.rapidapi.com',
         },
         body: JSON.stringify({
-            query: question, // Use the question variable here
+            query: question,
         }),
     };
 
@@ -24,10 +25,6 @@ document.querySelector('button').addEventListener('click', (event) => {
             const responseData = data;
             console.log('Data:', responseData.response);
 
-            // Display the user's question on the left side
-            displayMessage('user', question);
-
-            // Display the bot's response on the right side
             displayMessage2('bot', responseData.response);
 
             // Clear the input field
@@ -36,7 +33,11 @@ document.querySelector('button').addEventListener('click', (event) => {
             // Scroll to the bottom to show the latest messages
             scrollChatToBottom();
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            displayErrorMessage('An error occurred. Please try again.');
+        })
+        .finally(() => hideLoadingIndicator());
 });
 
 function displayMessage(sender, message) {
@@ -64,3 +65,20 @@ function scrollChatToBottom() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+function showLoadingIndicator() {
+    document.getElementById('loading').style.display = 'inline-block';
+}
+
+function hideLoadingIndicator() {
+    document.getElementById('loading').style.display = 'none';
+}
+
+function displayErrorMessage(message) {
+    const errorElement = document.getElementById('errorMessage');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+
+    setTimeout(() => {
+        errorElement.style.display = 'none';
+    }, 5000); // Hide after 5 seconds (adjust as needed)
+}
