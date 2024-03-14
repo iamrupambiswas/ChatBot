@@ -26,9 +26,26 @@ body{
 .history-container{
     width: 30%;
     background-color: rgb(119, 87, 217);
-    /* border-radius: 1rem;
-    margin: 1rem; */
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: none;
+    padding-top: 1rem;
+}
+
+.history-item{
+    border: 1px solid white;
+    background-color: rgba(196, 155, 155, 0.5);
+    color: white;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 90%;
+}
+
+.history-item:hover{
+    background-color: rgba(70, 51, 51, 0.5);
 }
 
 .chat-container{
@@ -42,15 +59,10 @@ body{
     margin: 0;
     padding: 0;
     padding-left: 1rem;
-    overflow: auto;
+    /* overflow: auto; */
     background-color: whitesmoke;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
-
-.loading{
-    font-weight: 800;
-}
-
 
 .chat-messages{
     overflow: auto;
@@ -74,6 +86,97 @@ body{
 /* Optionally hide scrollbar for IE and Edge */
 .chat-messages {
     -ms-overflow-style: none;
+}
+
+.response-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.response-container img{
+    height: 2rem;
+}
+
+.query-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.1rem;
+    align-self: flex-end;
+}
+
+.query-container img{
+    height: 2rem;
+}
+
+.query{
+    text-align: right;
+    display: inline-block;
+    align-self: flex-end;
+    background-color: rgb(97, 13, 233);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+
+.response{
+    text-align: left;
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #c6c4c4;
+    color: rgb(41, 41, 41);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+    width: 40rem;
+}
+
+.title{
+    position: fixed;
+    top: 20px;
+    color: rgb(168, 133, 133);
+}
+
+.nightmode{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.nightmode i{
+    font-size: 2rem;
+}
+
+.loading{
+    text-align: left;
+    display: none;
+    align-self: flex-start;
+    order: 1;
+    font-weight: 800;
+    color: rgb(41, 41, 41);
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.loading p{
+    background-color: #c6c4c4;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+}
+
+.loading img{
+    height: 2rem;
+}
+
+#errorMessage{
+    text-align: left;
+    display: none;
+    align-self: flex-start;
+    background-color: #f2eeee;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    color: rgb(156, 143, 185);   
+    margin-bottom: 2rem;
 }
 
 .chat-input{
@@ -119,62 +222,4 @@ body{
 
 .chat-input button:hover{
     color: rgb(63, 63, 63);
-}
-
-
-.chat-message{
-    text-align: right;
-    display: inline-block;
-    align-self: flex-end;
-    background-color: rgb(97, 13, 233);
-    color: white;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    margin-right: 1rem;
-}
-
-.bot-response{
-    text-align: left;
-    display: inline-block;
-    align-self: flex-start;
-    background-color: #f2eeee;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    margin-bottom: 2rem;
-    width: 40rem;
-}
-
-.loading{
-    text-align: left;
-    display: none;
-    align-self: flex-start;
-    background-color: #f2eeee;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    order: 1;
-}
-
-#errorMessage{
-    text-align: left;
-    display: none;
-    align-self: flex-start;
-    background-color: #f2eeee;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    color: rgb(156, 143, 185);   
-    margin-bottom: 2rem;
-}
-
-.history-item{
-    border: 1px solid white;
-    background-color: rgba(196, 155, 155, 0.5);
-    color: white;
-    margin: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-}
-
-.history-item:hover{
-    background-color: rgba(70, 51, 51, 0.5);
 }
