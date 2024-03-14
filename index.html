@@ -9,18 +9,26 @@
 </head>
 <body>
     
-    <img src="./Bot.png" alt="">
-    <div class="chat-container">
-        <div class="chat-messages" id="chat-messages">
-            <div class="loading" id="loading">
-                Loading...
+    <!-- <img src="./Bot.png" alt=""> -->
+    <div class="main-container">
+        <!-- For the history messages -->
+        <div class="history-container" id="historyContainer">
+            
+        </div>
+
+        <!-- Chat or interaction -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="loading" id="loading">
+                    . . .
+                </div>
+                <div id="errorMessage"></div>
             </div>
-            <div id="errorMessage"></div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="question" placeholder="type your message">
-            <button><i class="fa-solid fa-hand-point-up"></i></button><br>
-        </div>
+            <div class="chat-input">
+                <input type="text" id="question" placeholder="Type a message">
+                <button><i class="fa-regular fa-paper-plane"></i></button><br>
+            </div>
+        </div>    
     </div>
 
     <script src="./script.js"></script>
