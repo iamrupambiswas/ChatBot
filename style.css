@@ -18,7 +18,7 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
-    justify-content: space-between;
+    justify-content: center;
     background-color: whitesmoke;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
@@ -26,11 +26,15 @@ body{
 .history-container{
     width: 30%;
     background-color: rgb(119, 87, 217);
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: none;
     padding-top: 1rem;
+}
+
+.history-container h2{
+    color: white;
 }
 
 .history-item{
@@ -88,6 +92,50 @@ body{
     -ms-overflow-style: none;
 }
 
+.primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary img{
+    height: 5rem;
+}
+
+.menu{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.menu div{
+    height: fit-content;
+    padding: 1rem;
+    border: 1px solid #c6c4c4;
+    border-radius: 1rem;
+    font-size: small;
+    color: rgb(52, 52, 52);
+    cursor: pointer;
+}
+
+.menu div:hover{
+    background-color: #bdb1b1;
+    color: white;
+}
+
+.menu div:hover p{
+    color: white;
+}
+
+.menu div h4{
+    margin-bottom: 0.5rem;
+}
+
+.menu div p{
+    color: rgb(67, 66, 66);
+}
+
 .response-container{
     display: flex;
     flex-direction: row;
@@ -128,23 +176,13 @@ body{
     padding: 1rem;
     border-radius: 0.8rem;
     margin-bottom: 2rem;
-    width: 40rem;
+    max-width: 40rem;
 }
 
 .title{
     position: fixed;
     top: 20px;
     color: rgb(168, 133, 133);
-}
-
-.nightmode{
-    position: fixed;
-    top: 10px;
-    right: 10px;
-}
-
-.nightmode i{
-    font-size: 2rem;
 }
 
 .loading{

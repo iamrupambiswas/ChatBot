@@ -16,12 +16,39 @@ document.querySelector('#question').addEventListener('keydown', (event) => {
 });
 
 
+// to load the questions stored in the history container to the searchbar
+document.getElementById('historyContainer').addEventListener('click', function(event) {
+    document.getElementById('question').value = '';
+    if (event.target.tagName.toLowerCase() === 'div' && !event.target.id) {
+        const textbox = document.getElementById('question');
+        textbox.value += event.target.textContent.trim() + '\n';
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuElements = document.querySelectorAll(".menu-element");
+    const textbox = document.getElementById("question");
+
+    menuElements.forEach(function (element) {
+        element.addEventListener("click", function () {
+            textbox.value = this.querySelector("h4").textContent + "\n";
+            // + this.querySelector("p").textContent;
+        });
+    });
+});
+
+
 // triggering function
 function handleUserInput() {
     showLoadingIndicator();
 
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('primary').style.display = 'none';
     const question = document.querySelector('#question').value;
     displayQuery('user', question);
+    document.getElementById('historyContainer').style.display = 'flex';
+    document.getElementById('main-container').style.justifyContent = 'space-between';
     addToHistory(question);
     scrollChatToBottom();
 
@@ -52,10 +79,13 @@ function handleUserInput() {
             console.error('Error:', error);
             displayErrorMessage('An error occurred. Please try again.');
         })
-        .finally(() => hideLoadingIndicator());
+        .finally(() => {
+            hideLoadingIndicator();
+        });
 }
 
 
+// function to display the response of the bot
 function displayResponse(sender, message) {
     const chatMessages = document.getElementById('chat-messages');
     const messageContainer = document.createElement('div');
@@ -80,6 +110,7 @@ function displayResponse(sender, message) {
 }
 
   
+// function to display the user query
 function displayQuery(sender, message) {
     const chatMessages = document.getElementById('chat-messages');
     const messageContainer = document.createElement('div');
@@ -103,7 +134,7 @@ function displayQuery(sender, message) {
 }
 
 
-// to add the query to the history
+// function to add the user query to the history
 function addToHistory(question) {
     const historyContainer = document.getElementById('historyContainer');
     const questionDiv = document.createElement('div');
@@ -113,19 +144,26 @@ function addToHistory(question) {
 }
 
 
+// function to scroll down to the recent most query after calling the triggering function
 function scrollChatToBottom() {
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+
+// function to show the loading ellipses while fetching the bot responses
 function showLoadingIndicator() {
     document.getElementById('loading').style.display = 'flex';
 }
 
+
+// function to hide the loading ellipses when the bot response is generated
 function hideLoadingIndicator() {
     document.getElementById('loading').style.display = 'none';
 }
 
+
+// function to display error messages
 function displayErrorMessage(message) {
     const errorElement = document.getElementById('errorMessage');
     errorElement.textContent = message;
@@ -135,13 +173,3 @@ function displayErrorMessage(message) {
         errorElement.style.display = 'none';
     }, 5000); // Hide after 5 seconds (adjust as needed)
 }
-
-
-document.getElementById('historyContainer').addEventListener('click', function(event) {
-    document.getElementById('question').value = '';
-    if (event.target.tagName.toLowerCase() === 'div' && !event.target.id) {
-        const textbox = document.getElementById('question');
-        textbox.value += event.target.textContent.trim() + '\n';
-        console.log("Successful!!!")
-    }
-});
