@@ -1,0 +1,41 @@
+@media (min-width: 577px) and (max-width: 768px) { 
+    /* Styles for medium devices like tablets*/ 
+
+    .menu{
+        grid-template-columns: 100%;
+    }
+
+    .history-container{
+        display: none;
+        width: 0;
+    }
+
+    .history-container div, h2{
+        display: none;
+    }
+
+    .chat-container{
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) { 
+    /* Styles for small devices like mobile phones*/ 
+
+    .menu{
+        /* display: none; */
+        grid-template-columns: 100%;
+    }
+
+    .main-container{
+        padding: 0;
+        margin: 0;
+    }
+
+    .chat-container{
+        margin: 0;
+        padding: 0;
+        width: 90%;
+    }
+}
+

@@ -1,0 +1,17 @@
+.history-container {
+    background: linear-gradient(to right, rgb(119, 87, 217), rgb(87, 176, 217), rgb(217, 87, 215)); /* Change colors as per your preference */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

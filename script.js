@@ -1,4 +1,4 @@
-const url = 'https://chatgpt-gpt5.p.rapidapi.com/ask';
+// const url = 'https://chatgpt-gpt5.p.rapidapi.com/ask';
 
 // to trigger the query with button click
 document.querySelector('button').addEventListener('click', (event) => {
@@ -33,8 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
     menuElements.forEach(function (element) {
         element.addEventListener("click", function () {
             textbox.value = this.querySelector("h4").textContent + "\n";
-            // + this.querySelector("p").textContent;
         });
+    });
+
+    // Add event listener for Enter key press
+    textbox.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent the default action of Enter key
+            // Your desired functionality here
+            handleUserInput();
+        }
     });
 });
 
@@ -49,6 +57,7 @@ function handleUserInput() {
     displayQuery('user', question);
     document.getElementById('historyContainer').style.display = 'flex';
     document.getElementById('main-container').style.justifyContent = 'space-between';
+    document.getElementById('chat-input').style.width = '98%';
     addToHistory(question);
     scrollChatToBottom();
 
